@@ -1,0 +1,97 @@
+Aaron Santucci
+CS 344
+
+Exercise 2.1
+
+    a. Which of the local search algorithms solves the problem? How well does each algorithm do?
+
+        abs.py uses the hill climbing and simulated annealing algorithms. Both accomplish their goal
+
+    b. Which algorithm works more quickly?
+
+        Hill climbing works more quickly on a maximum of 30. When run on higher maximum
+            value (such as 3000) or smaller delta (such as .001) simulated annealing is faster.
+
+    c. Does the starting value for x make any difference? Why or why not?
+
+        Starting value for x doesn't make a difference because the maximum is always the same in the equation.
+        abs.py gives a random initial value.
+
+    d. What affect does changing the delta step value make on each algorithm? Why?
+
+        Changing the delta step changes the interval that the algorithm moves for hill climbing which hurts
+            the accuracy of the search in this case but increases the speed to solve. Simulated annealing isn't
+            affected by this because it
+            doesn't use it.
+
+    e. What is the purpose of the exp_schedule() method in the simulated annealing function call?
+
+        This is the scheduling function for simulated annealing which determines at what intervals
+            the temperature is decreased.
+
+Exercise 2.2
+
+    a. How do each of the algorithms do on this problem space? Why?
+
+        Both algorithms don't get the expected result of 30 unless seemingly by chance.
+        Hill climbing is more accurate because it finds a local maximum and then iterates by checking for
+            improvements on it.
+        Simulated annealing keeps doing random jumps in particular direction from to look of things, which produces
+            pretty off results
+
+    b. Does the starting value make any difference here?
+
+        The result value is very close to the initial value because the algorithms aren't properly moving their
+            checks away from their local maximums.
+
+    c. Does modifying the step size (i.e., delta) affect the operation of the two algorithms? Why or why not?
+
+        It affects it by determining the area that it checks for higher maximums. A higher delta value means
+            the algorithm scans a wider area with each iteration until it finds what it thinks is the global maximum.
+
+    d. What are the maximum and minimum possible values here, and how do the two algorithms score with respect to them?
+
+        The maximum value should be 30 based on the graph of the equation, however the random searches can go above this
+            with some improper checks.
+        The minimum value cannot go below zero.
+
+Exercise 2.3
+
+    a. How does each algorithm do with these restarts? Why?
+
+        Restarts on the hill climbing algorithm allow it to not rely on each individual local maximum as much and
+            prevents it from falling back by making sure a smaller value doesn't replace an existing larger maximum.
+            The result is usually very close to the actual max value for the equation
+        Restarts on the simulated annealing algorithm don't have as much impact although they significantly increase
+            the time to calculate. In general it appears to overshoot the maximum now; I'm not entirely sure if this
+            is just the algorithm or if I implemented something wrong.
+
+    b. What are the average values of the runs for each of the algorithms?
+
+        The average for hill climbing generally floats around between 13 and 15.
+        The average for simulated annealing generally floats around between 20 and 22 with more variance than HC.
+
+    c. If one of the algorithms does better, explain why; if not, explain why not.
+
+        I think that if properly implemented the simulated annealing algorithm would be better because hill
+            climbing seems to have a lot of ways that it can get stuck or get an inaccurate result.
+
+Exercise 2.4
+
+    a. For which algorithm does beam search make the most sense?
+
+        Beam search seems better for simulated annealing because it would narrow down the possibilities of making
+            bad jumps and also stores past states/solutions to jump back to if need be.
+
+    b. How many solutions could you maintain with reasonable space and time constraints?
+
+        That depends on what you consider reasonable? For a problem like this (simply* math equation) we should
+            be able to rerun the simulation >100 times in well under 1 second. Memory shouldn't be a huge concern
+            for a problem like this either unless we're running it millions/billions of times (or if Python has
+            a memory limit I don't know about).
+
+    c. How would you modify the code to implement beam search? How is it different from random restarts, if at all?
+
+        We would need to be able to store past/alternate solutions and have a pruning method for determining valid
+            steps and solutions. Random restarts only redoes the same algorithm with random values but with beam
+            search there should be a method to the path and values it chooses.
