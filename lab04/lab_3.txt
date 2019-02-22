@@ -1,0 +1,43 @@
+CS-344
+Lab 4
+Aaron Santucci ajs94
+
+Exercise 4.3
+
+    P(test) = (.99 * .089) + (.02 * 0.911) = .10633
+    P(-test) = 1 - .10633 = .89367
+    P(-users) = 1 - .089 = .911
+
+a.
+    P(User) = .089
+        This is given in the problem.
+    P(test | user) = .99
+        This is given in the problem.
+    P(-test | user)
+        1 - P(test | user) = .01
+    P(test | -user) = .02
+        This is given in the problem. "non drug users get negative results 98% of the time"
+        1 - .98 = .02
+    P(User | test) =
+        [P(test | user) * P(User)] / P(test) = [.99 * .089] / .10633 = .82865
+
+b.
+    A woman in this age group is found to have a positive mammography in a routine screening.
+    What are the chances that she has/doesn't have cancer?
+
+        "80% of women with breast cancer will get positive mammographies"
+        P(Test | Cancer) = .8
+
+        "9.6% of women without breast cancer will also get positive mammographies"
+        P(Test | -Cancer) = .096
+
+        P(Test) = P(Test | Cancer) + P(Test | -Cancer)
+        .8 * .01 + .096 * .99 = .10304
+
+        "If positive test then cancer"
+        P(Cancer | Test) = P(Test | Cancer) * P(Cancer)] / P(Test)
+>       [.8 * .01] / .10304 = .0776
+
+        "If positive test then NOT cancer"
+        P(-Cancer | Test) = P(Test | -Cancer) * P(-Cancer)] / P(Test)
+>       [.096 * .99] / .10304 = .9224
