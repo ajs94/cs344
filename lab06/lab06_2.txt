@@ -4,3 +4,21 @@ Lab 6
 
 Information Theory
 Information Gain from "Hungry"
+
+6 WillWait, 6 not
+...
+
+Hungry
+    5 WillWait
+    2 Not
+Not Hungry
+    1 WillWait
+    4 Not
+
+Entropy(Hungry) = 1 bit
+Remainder(Hungry)   = [ 7/12 * Entropy(5/7, 2/7) ] + [ 5/12 * Entropy(1/5, 4/5) ]
+                    = [ 7/12 * -(5/7 * lg(5/7) + 2/7 * lg(2/7))] + [5/12 * -(1/5 * lg(1/5) + 4/5 * lg(4/5))]
+                    = 0.8043
+Gain(Hungry) = 1 - 0.8043 = 0.1957
+
+Hungry is a worse indicator than 'patrons' but better than 'type'
