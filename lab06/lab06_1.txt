@@ -1,0 +1,37 @@
+Aaron Santucci
+CS 344
+Lab 6
+
+Framing
+    1. Classify dog, cat, and horse based on given characteristics.
+
+    2. Mapping each label to the correct animal.
+
+    3.
+        a. Mapping each label to the correct animal and associating traits with the correct animal.
+        b. Horse -> Horse, Dog -> Dog, Cat -> Cat
+        c. One of the labels is mapped to the wrong animal.
+
+    4.  a. { Horse: horse trait, Dog: dog traits, Cat: cat traits }
+        b. defined as dict? not sure what this is asking
+
+    5.
+        a. Something identifying the animal description with the animal name and maybe its traits.
+        b. To identify horses, dogs, and cats
+
+    6. Have a dict of known traits with each animal. Figure out a mathematical way to associate how closely
+        what we know matches the given traits.
+
+Formulating
+    7.
+        a. Multi-class single label classification which predicts which animal a given list of traits is.
+        b. (Variable) is/isn't a (Animal Type)
+    8. {    animal1: [eats hay, can be ridden],
+            animal2: [wags tail, plays fetch],
+            animal3: [likes milk, nocturnal] }
+
+    9. Input given via console or defined variable.
+
+    10. {   animal1: [eats hay, can be ridden],
+            animal2: [wags tail, plays fetch],
+            animal3: [likes milk, nocturnal] } ?
